@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('layoute');
 });
 
-Route::get("/paymnt" , [PaymentController::class , 'index'])->name("payment.esewa");
+Route::get("/payment" , [PaymentController::class , 'index'])->name("payment.esewa");
 // Route::post("/paymnt/send" , [PaymentController::class , 'index'])->name("payment.esewa.send");
-Route::get("/sucess" , [PaymentController::class , 'esewaSuccess'])->name("payment.esewa.secess");
-Route::get("/failure" , [PaymentController::class , 'esewaFailure'])->name("payment.esewa.failure ");
+Route::get("/success" , [PaymentController::class , 'esewaSuccess'])->name("payment.esewa.success");
+Route::get("/failure" , [PaymentController::class , 'esewaFailure'])->name("payment.esewa.failure");

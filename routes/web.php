@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layoute');
-});
+})->name("home");
 
 Route::get("/payment" , [PaymentController::class , 'index'])->name("payment.esewa");
 // Route::post("/paymnt/send" , [PaymentController::class , 'index'])->name("payment.esewa.send");

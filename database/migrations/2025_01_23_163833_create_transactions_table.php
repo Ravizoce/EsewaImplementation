@@ -11,18 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("order_id")->nullable();
             $table->string("transaction_uuid")->unique();
-            $table->string("status")->default("pending")->comment("options: Pending ,Processing,Confirmed,Failed,Refunded,Disputed,Cancelled,On_Hold")->default("pending");
-            $table->decimal("amount" ,2,false);
-            $table->decimal("total_amount" ,2,false);
-            $table->decimal("tax_amount" ,2,false);
-            $table->decimal("service_charge" ,2,false);
-            $table->decimal("delivery_charge" ,2,false);
+            $table->string("status")->default("pending")->default("pending")->comment("options: Pending ,Processing,Confirmed,Failed,Refunded,Disputed,Cancelled,On_Hold");
+            $table->decimal("amount",8,2);
+            $table->decimal("total_amount",8,2);
+            $table->decimal("tax_amount",8,2);
+            $table->decimal("service_charge",8,2);
+            $table->decimal("delivery_charge",8,2);
+            $table->string("signature");
+            $table->text("failure")->nullable();
             $table->text("extra")->nullable();
-            $table->json("extra")->nullable();
+            $table->json("extraJson")->nullable();
             $table->softDeletesDatetime();
             $table->timestamps();
         });

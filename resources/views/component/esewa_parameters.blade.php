@@ -15,12 +15,12 @@
     @endforeach --}}
 
     <body>
-        <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
+        <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST" hidden>
             @csrf
             @foreach ($data as $index => $item)
                 <input type="text" id="{{$index}}" name="{{$index}}" value="{{$item}}" required>
             @endforeach
-            <input value="Submit" type="submit">
+            <input value="Submit" id="submit" type="submit">
         </form>
     </body>
 
